@@ -22,18 +22,15 @@
               <li id="food"><a href="#">Food </a></li>
               <li id="about"><a href="/about">Drink</a></li>
               <li id="order"><a href="">Order</a></li>
-            </ul>
-        </div><!-- end word nav-->
-        <div class="col-lg-4  col-md-6">
-            <ul class="nav navbar-nav navbar-right">
-            
-              <!-- HTML for the dropdown button -->
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCartButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <li id="contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li> (<span id="cartCount">0</span>)
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownCartButton">
-      <div id="cartItems">
+                          <!--the dropdown button -->
+    <li>
+        <div class="dropdown">
+          <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCartButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i> (<span id="cartCount">0</span>)
+          </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownCartButton">
+        
+        <div id="cartItems">
         <!-- Cart items will be dynamically added here -->
 
       </div>
@@ -41,13 +38,14 @@
       <button class="btn btn-primary dropdown-item" href="#">Checkout</button>
     </div>
   </div>
-  
-  
- 
-  
-              <li id="search"><a href=""><i class="fa fa-search"></i></a></li>
-            </ul>
-        </div><!-- end icon nav-->
+    </li>
+    <li id="search">
+        <button class="btn btn-secondary" type="button">  
+         <i class="fa fa-search"></i>
+         </button>
+       </li>
+   </ul>
+        </div><!-- end word nav-->
     </div><!-- End row-->
     </div> <!-- End Container -->
       </nav>
