@@ -26,7 +26,25 @@
         </div><!-- end word nav-->
         <div class="col-lg-4  col-md-6">
             <ul class="nav navbar-nav navbar-right">
-              <li id="contact"><a href="/contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+            
+              <!-- HTML for the dropdown button -->
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCartButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li id="contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li> (<span id="cartCount">0</span>)
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownCartButton">
+      <div id="cartItems">
+        <!-- Cart items will be dynamically added here -->
+
+      </div>
+      <div class="dropdown-divider"></div>
+      <button class="btn btn-primary dropdown-item" href="#">Checkout</button>
+    </div>
+  </div>
+  
+  
+ 
+  
               <li id="search"><a href=""><i class="fa fa-search"></i></a></li>
             </ul>
         </div><!-- end icon nav-->
