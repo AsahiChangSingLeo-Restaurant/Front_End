@@ -1,3 +1,9 @@
+:root{
+    --yellow: #E3C565;
+    --black:#192a56;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -16,12 +22,199 @@
     background-color: #E3C565 !important;
 }
 
+.heading{
+    text-align: center;
+    color: white;
+    background-color: #d4af32;
+    letter-spacing: 2px;
+}
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap:1.5rem;
+    justify-content: center;
+}
+
+.menu .box-container .box{
+    background: #fff;
+    border:.1rem solid rgba(0,0,0,.2);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);    
+}
+
+.menu .box-container .box .image{
+    height: 25rem;
+    width: 100%;
+    padding:1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.menu .box-container .box .image .fa-heart{
+    position: absolute;
+    top:2.5rem; right: 2.5rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    color:var(--black);
+}
+
+.menu .box-container .box .image .fa-heart:hover{
+    background-color: var(--yellow);
+    color:#fff;
+}
+
+.menu .box-container .box .content{
+    padding:2rem;
+    padding-top: 0;
+}
+
+.menu .box-container .box .content .stars{
+    padding-bottom: 1rem;
+}
+
+.menu .box-container .box .content .stars i{
+   font-size: 1.7rem;
+   color:var(--yellow);
+}
+
+.menu .box-container .box .content h3{
+    color:var(--black);
+    font-size: 2.5rem;
+}
+
+.menu .box-container .box .content p{
+    color:var(--light-color);
+    font-size: 1.6rem;
+    padding:.5rem 0;
+    line-height: 1.5;
+}
+
+.menu .box-container .box .content .price{
+    color:var(--yellow);
+    margin-left: 1rem;
+    font-size: 2.5rem;
+}
+/* drinks **/
+.drink .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 35rem);
+    gap:1.5rem;
+    justify-content: center;
+}
+
+.drink .box-container .box{
+    background: #fff;
+    border:.1rem solid rgba(0,0,0,.2);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);    
+}
+
+.drink .box-container .box .image{
+    height: 25rem;
+    width: 100%;
+    padding:1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.drink .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.drink .box-container .box .image .fa-heart{
+    position: absolute;
+    top:2.5rem; right: 2.5rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    color:var(--black);
+}
+
+.drink .box-container .box .image .fa-heart:hover{
+    background-color: var(--yellow);
+    color:#fff;
+}
+
+.drink .box-container .box .content{
+    padding:2rem;
+    padding-top: 0;
+}
+
+.drink .box-container .box .content .stars{
+    padding-bottom: 1rem;
+}
+
+.drink .box-container .box .content .stars i{
+   font-size: 1.7rem;
+   color:var(--yellow);
+}
+
+.drink .box-container .box .content h3{
+    color:var(--black);
+    font-size: 2.5rem;
+}
+
+.drink .box-container .box .content p{
+    color:var(--light-color);
+    font-size: 1.6rem;
+    padding:.5rem 0;
+    line-height: 1.5;
+}
+
+.drink .box-container .box .content .price{
+    color:var(--yellow);
+    margin-left: 1rem;
+    font-size: 2.5rem;
+}
+/* drinks **/
+
+
+/* btn **/
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--black);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding:.8rem 3rem;
+}
+
+.btn:hover{
+    background: var(--yellow);
+    letter-spacing: .1rem;
+}
+
+
+/* footer **/
 .footer-padding {
 	padding-bottom: 60px;
 }
 
 .footer {
-	position: absolute;
+	position: relative;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
@@ -30,7 +223,8 @@
 }
 
 .footer p {
+    text-align: center;
 	margin-top: 25px;
-	font-size: 12px;
+	font-size: 18px;
   color: #fff;
 }
