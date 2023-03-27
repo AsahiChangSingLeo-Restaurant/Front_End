@@ -1,23 +1,75 @@
-<div class="container">
-
-  <section class="footer">
-
-    <div class="box-container">
-
-      <div class="box">
-        <h3>locations</h3>
-        <h4>In your heart 😘</h4>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/public/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-content">
+        <!-- Your main content goes here -->
       </div>
 
-      
-      </div>
+      <section class="footer">
+        <div class="box-container">
+          <div class="box">
+            <h3>locations</h3>
+            <h4>In your heart 😘</h4>
+          </div>
 
+          <div class="box">
+            <h3>contact info</h3>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+
+          <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+          </div>
+        </div>
+      </section>
     </div>
 
-  </section>
+    <footer class="footer">
+      <!-- Your footer content goes here -->
+    </footer>
 
-</div>
+  </body>
 
+  <style>
+    /* Set the container to be full height */
+    html, body {
+      height: 100%;
+    }
 
-</body>
+    /* Set the container to be a flex container */
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    /* Set the main content area to grow and shrink as needed */
+    .main-content {
+      flex: 1 0 auto;
+    }
+
+    /* Style the footer */
+    .footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      /* Set the footer to stick to the bottom of the page */
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
 </html>
