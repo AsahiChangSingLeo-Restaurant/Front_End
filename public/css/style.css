@@ -10,6 +10,7 @@
 }
 
 .navbar {
+    
     padding-top: 15px;
     padding-bottom: 15px;
     border: 0;
@@ -72,24 +73,12 @@
     color:var(--black);
 }
 
-.menu .box-container .box .image .fa-heart:hover{
-    background-color: var(--yellow);
-    color:#fff;
-}
 
 .menu .box-container .box .content{
     padding:2rem;
     padding-top: 0;
 }
 
-.menu .box-container .box .content .stars{
-    padding-bottom: 1rem;
-}
-
-.menu .box-container .box .content .stars i{
-   font-size: 1.7rem;
-   color:var(--yellow);
-}
 
 .menu .box-container .box .content h3{
     color:var(--black);
@@ -138,36 +127,11 @@
     object-fit: cover;
 }
 
-.drink .box-container .box .image .fa-heart{
-    position: absolute;
-    top:2.5rem; right: 2.5rem;
-    height: 5rem;
-    width: 5rem;
-    line-height: 5rem;
-    text-align: center;
-    font-size: 2rem;
-    background: #fff;
-    border-radius: 50%;
-    color:var(--black);
-}
 
-.drink .box-container .box .image .fa-heart:hover{
-    background-color: var(--yellow);
-    color:#fff;
-}
 
 .drink .box-container .box .content{
     padding:2rem;
     padding-top: 0;
-}
-
-.drink .box-container .box .content .stars{
-    padding-bottom: 1rem;
-}
-
-.drink .box-container .box .content .stars i{
-   font-size: 1.7rem;
-   color:var(--yellow);
 }
 
 .drink .box-container .box .content h3{
@@ -192,18 +156,29 @@
 
 /* btn **/
 
-.btn{
+.button{
     margin-top: 1rem;
     display: inline-block;
     font-size: 1.7rem;
     color:#fff;
-    background-color: rgb(47, 46, 46);
+    background-color: rgb(122, 120, 120);
     border-radius: .5rem;
     cursor: pointer;
     padding:.8rem 3rem;
 }
 
-.btn:hover{
+.dividerbtn{
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color:#fff;
+    background-color: rgb(122, 120, 120);
+    border-radius: .5rem;
+    cursor: pointer;
+    padding:.8rem 3rem;
+}
+
+.button:hover{
     background: var(--yellow);
     letter-spacing: .1rem;
 }
@@ -216,6 +191,7 @@
   
   .dropdown-menu {
     min-width: 250px;
+    background-color: #fff;
   }
  
 
@@ -246,7 +222,18 @@
   color: #fff;
 }
 #dropdownCartButton{
-    display: inline-flex;
+    display: inline-block;
     letter-spacing: 2px;
+    
+}
+
+li{
+    padding-right: 10px;
+}
+#cartItems{
+    display: inline-block;
+    font-size: smaller;
+    text-align: center;
+   
 }
 

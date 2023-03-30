@@ -4,129 +4,28 @@
     <section class="menu" id="menu">
 
         <h1 class="heading"> Foods </h1>
-    
+        <% if (foodMenu) { %>
+           
         <div class="box-container">
-    
+            <% foodMenu.forEach(food => { %>
             <div class="box">
+               
+                
                 <div class="image">
-                    <img src="css/images/Nugget.jpg" alt="">
+                    <img name="foodImage" src= '<%= food.imageURL %>' alt="">
                 </div>
                 <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Dog meat</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">65 THB</span>
-                </div>
+                    <h3 name="foodName"><%= food.name %></h3>
+                    <p><%= food.description %></p>
+                    <form action="/add-food" method="post">
+                    <button name="buttonFood" class="button btn" type="checkbox" onClick="this.form.submit()"  value="<%=food._id%>" >add to cart</button>             
+                     </form>
+                    <span class="price" name="foodPrice"><%= food.price%> THB</span>
+                </div>       
             </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Pizza.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Donut but no hole in the middle</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">70 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/wtf.jpg" alt="">
- 
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>I think this is cat meat</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">120 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/menu-4.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Panda's milk ice-cream</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">60 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/menu-5.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Meow</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">60 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/menu-6.jpg" alt="">
-     
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Yeah Bwoi💩</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">60 THB</span>
-                </div>
-            </div>
-    
-        
-    
+            <% }); %>
         </div>
-    
+        <% } %>
     </section>
 
 </div>
@@ -138,182 +37,29 @@
     <section class="drink" id="drink">
         <h1 class="heading"> Drinks </h1>
     
-        <div class="box-container">
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Asahi1.jpg" alt="">
-     
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
+        <% if (drinkMenu) { %>
+           
+            <div class="box-container">
+                <% drinkMenu.forEach(function(drink) { %>
+                <div class="box">
+                   
+                    
+                    <div class="image">
+                        <img src= '<%= drink.imageURL %>' alt="">
                     </div>
-                    <h3>Holy Drink from japan</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">85 THB</span>
+                    <div class="content">
+                        <h3><%= drink.name %></h3>
+                        <p><%= drink.description %></p>
+                        <form action="/add-food" method="post">
+                        <button name="buttonDrink" class="button btn" type="checkbox" onClick="this.form.submit()" value="<%=drink._id%>">add to cart</button>
+                        </form>
+                        <span class="price"><%= drink.price%> THB</span>
+                    </div>       
                 </div>
+                <% }); %>
             </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Asahi2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Holy drink from japan but bottle</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">120 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Chang1.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Elephant Beer</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">75 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Chang2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Elephat, again.</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">90 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Sing1.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Golden Lion</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">80 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Leo1.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Faster than turtle</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">75 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Leo2.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>Cheetah in a bottle</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">100 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Schweppes.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>I prefer sprite</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">30 THB</span>
-                </div>
-            </div>
-    
-            <div class="box">
-                <div class="image">
-                    <img src="css/images/Coke.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-alt"></i>
-                    </div>
-                    <h3>What is pepsi?</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, accusantium.</p>
-                    <a href="#" class="btn">add to cart</a>
-                    <span class="price">25 THB</span>
-                </div>
-            </div>
-    
-        </div>
-    
+            <% } %>
+           
     </section>
 
 </div>
