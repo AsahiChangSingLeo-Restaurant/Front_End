@@ -175,6 +175,9 @@ app.post('/tohome',(req,res)=>{
     console.log('Go to Home Page');
    res.redirect('/');
 });
+app.get('/OrderTrack',(req,res)=>{
+    res.render('OrderTrack');
+})
 
 app.post('/go-to-checkout',(req,res)=>{
     res.redirect('/checkout');

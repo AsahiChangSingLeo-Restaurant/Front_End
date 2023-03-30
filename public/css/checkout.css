@@ -213,11 +213,9 @@ body{
     min-height: 100vh;
   }
 .divBox{
-    margin-top: 10%;
+    margin-top: 5%;
+    width: 25%;
 }
 
-.Track{
-    margin-left: 46%;
-}
 
 
