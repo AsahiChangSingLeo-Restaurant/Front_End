@@ -9,7 +9,6 @@ const Item = require('./model/listItem').Item;
 const Item2 = require('./model/listItem').Item2;
 const List = require('./model/listItem').List;
 const app = express();
-const quantityItem = 1;
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -124,9 +123,7 @@ const drink9 = new Item({
     price: 25,
 });
 
-app.get('/checkout',(req,res)=>{
-    res.render('checkout')
-})
+
 
 
 const drinkMenu = [drink1,drink2,drink3,drink4,drink5,drink6,drink7,drink8,drink9];
@@ -158,6 +155,17 @@ app.get('/',async (req,res)=>{
          totalPrice:totalPrice
     });
  
+});
+app.get('/checkout',async (req,res)=>{
+    const cartItems = await Item2.find({});
+    var totalPrice = 0;
+    for(i = 0; i < cartItems.length; i++){
+        totalPrice += cartItems[i].SubTotalPrice;
+    }
+    res.render('checkout',{
+        cartItems:cartItems,
+        totalPrice:totalPrice
+    })
 });
 
 app.post('/add-food',async (req,res)=>{
