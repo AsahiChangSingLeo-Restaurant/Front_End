@@ -124,6 +124,10 @@ const drink9 = new Item({
     price: 25,
 });
 
+app.get('/checkout',(req,res)=>{
+    res.render('checkout')
+})
+
 
 const drinkMenu = [drink1,drink2,drink3,drink4,drink5,drink6,drink7,drink8,drink9];
 
