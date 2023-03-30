@@ -17,6 +17,10 @@ app.get('/',(req,res)=>{
    })
 });
 
+app.get('/checkout',(req,res)=>{
+    res.render('checkout')
+})
+
 
 
 
