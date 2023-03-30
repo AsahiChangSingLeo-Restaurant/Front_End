@@ -8,6 +8,7 @@ const { result } = require('lodash');
 const Item = require('./model/listItem').Item;
 const Item2 = require('./model/listItem').Item2;
 const List = require('./model/listItem').List;
+const User = require('./model/listItem').User;
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -167,7 +168,14 @@ app.get('/checkout',async (req,res)=>{
         totalPrice:totalPrice
     })
 });
+app.post('/tohome',(req,res)=>{
+    console.log('Go to Home Page');
+   res.redirect('/');
+});
 
+app.post('/go-to-checkout',(req,res)=>{
+    res.redirect('/checkout');
+});
 app.post('/add-food',async (req,res)=>{
   const foodButton = req.body.buttonFood;
   const drinkButton = req.body.buttonDrink;
@@ -206,6 +214,7 @@ app.post('/add-food',async (req,res)=>{
   }
  
     });
+
 app.post('/quantity', async(req,res)=>{
 const plusButton = req.body.plus;
 const minusButton = req.body.minus;
@@ -271,6 +280,32 @@ else if(minusButton){
     })
 }
 
+});
+app.post('/checkbill',async(req,res)=>{
+    const userCart = await Item2.find({});
+     const userInfo = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        telNum: req.body.tel,
+        address: req.body.address,
+        addressOpt: req.body.address2,
+        province: req.body.province,
+        zipCode: req.body.zipCode,
+        nameOnCard: req.body.nameCard,
+        cardNum: req.body.cardNum,
+        exp: req.body.exp,
+        cvv: req.body.cvv
+     });
+     userInfo.save();
+     const arrayName = userInfo.firstName;
+     const list = new List({
+        name: arrayName,
+        userInput: userInfo,
+        items: userCart
+     });
+     list.save();
+     res.redirect('/')
 });
 
 mongo.connect();

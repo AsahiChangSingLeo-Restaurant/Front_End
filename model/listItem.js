@@ -19,12 +19,28 @@ const userItem = new mongoose.Schema({
 
        }
 });
+const userData = new mongoose.Schema({
+      firstName: String,
+      lastName: String,
+      email: String,
+      telNum: String,
+      address: String,
+      addressOpt: String,
+      province: String,
+      zipCode: String,
+      nameOnCard: String,
+      cardNum: String,
+      exp: String,
+      cvv: String
+});
 const listUserItem = new mongoose.Schema({
     name: String,
     TotalPrice: Number,
+    userInput:[userData], 
     items: [userItem]
 });
 
 exports.Item = mongoose.model("item",itemSchema);
 exports.Item2 = mongoose.model("item2",userItem);
 exports.List = mongoose.model("list",listUserItem);
+exports.User = mongoose.model("user",userData);
