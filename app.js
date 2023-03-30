@@ -168,6 +168,9 @@ app.get('/checkout',async (req,res)=>{
         totalPrice:totalPrice
     })
 });
+app.get('/checkbill',(req,res)=>{
+    res.render('checkbill');
+})
 app.post('/tohome',(req,res)=>{
     console.log('Go to Home Page');
    res.redirect('/');
