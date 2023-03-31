@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const itemSchema = new mongoose.Schema({
        _id: Number,
        imageURL: String,
@@ -24,11 +25,13 @@ const userData = new mongoose.Schema({
       lastName: String,
       email: String,
       telNum: String,
-      lat: Number,
+      lat: String,
+      lng: String,
       nameOnCard: String,
       cardNum: String,
       exp: String,
-      cvv: String
+      cvv: String,
+      status: String,
 });
 const userLocate = new mongoose.Schema({
        lat: Number,

@@ -180,7 +180,7 @@
 
 
 .footer {
-    position:  absolute;
+    position:  relative;
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -214,7 +214,6 @@ body{
   }
 .divBox{
     margin-top: 5%;
-
 }
 
 .Track{
@@ -229,4 +228,3 @@ body{
     width: 50%;
     height: 500px;
 }
-
