@@ -1,14 +1,16 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const lodash = require('lodash');
 const mongo = require('./config/db');
-const { result } = require('lodash');
+const axios = require('axios');
 const Item = require('./model/listItem').Item;
 const Item2 = require('./model/listItem').Item2;
+const Item3 = require('./model/listItem').Item3;
 const List = require('./model/listItem').List;
 const User = require('./model/listItem').User;
+
+
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -158,15 +160,19 @@ app.get('/',async (req,res)=>{
  
 });
 app.get('/checkout',async (req,res)=>{
+
     const cartItems = await Item2.find({});
+  
     var totalPrice = 0;
     for(i = 0; i < cartItems.length; i++){
         totalPrice += cartItems[i].SubTotalPrice;
     }
+   
     res.render('checkout',{
         cartItems:cartItems,
-        totalPrice:totalPrice
-    })
+        totalPrice,totalPrice
+    });
+   
 });
 app.get('/checkbill',(req,res)=>{
     res.render('checkbill');
@@ -288,32 +294,39 @@ else if(minusButton){
 
 });
 app.post('/checkbill',async(req,res)=>{
-    const userCart = await Item2.find({});
-     const userInfo = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        telNum: req.body.tel,
-        address: req.body.address,
-        addressOpt: req.body.address2,
-        province: req.body.province,
-        zipCode: req.body.zipCode,
-        nameOnCard: req.body.nameCard,
-        cardNum: req.body.cardNum,
-        exp: req.body.exp,
-        cvv: req.body.cvv
-     });
-     userInfo.save();
-     const arrayName = userInfo.firstName;
-     const list = new List({
-        name: arrayName,
-        userInput: userInfo,
-        items: userCart
-     });
-     list.save();
-     res.redirect('/')
+    // const userCart = await Item2.find({});
+  
+    //  const userInfo = new User({
+    //     firstName: req.body.firstName,
+    //     lastName: req.body.lastName,
+    //     email: req.body.email,
+    //     telNum: req.body.tel,
+    //     nameOnCard: req.body.nameCard,
+    //     cardNum: req.body.cardNum,
+    //     exp: req.body.exp,
+    //     cvv: req.body.cvv
+    //  });
+    //  userInfo.save();
+    //  const arrayName = userInfo.firstName;
+    //  const list = new List({
+    //     name: arrayName,
+    //     userInput: userInfo,
+    //     items: userCart
+    //  });
+    //  list.save();
+     res.redirect('/');
 });
-
+// app.post('/clickMap',(req,res)=>{
+    
+    
+//     console.log(req.body.test);
+//     res.redirect('/checkout');
+// })
+// app.post('/getLat',(req,res)=>{
+//     const test = req.body.lan;
+//     console.log(test);
+//     res.redirect('/checkout')
+// })
 mongo.connect();
 
 app.listen(3000, function(){

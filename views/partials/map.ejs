@@ -1,0 +1,65 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+crossorigin=""/>
+ 
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""></script>
+
+
+<style>
+    #map { height: 300px; }
+  </style>
+</head>
+<body>
+    <form  action="/map" method="post">
+        <input id="test" name="lan">
+    <div id="map"></div>
+    <!-- <p name="lan"  value="test"> test</p> -->
+</form>
+</body>
+
+
+<script>
+
+var lat;
+var lng;
+var map = L.map('map');
+map.setView([18.800556, 98.950919], 100);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+var iconOptions = {
+    iconUrl: 'tree.png',
+    iconSize: [38,95]
+}
+var CustomIcon = L.icon(iconOptions);
+var markerOptions = {
+    draggable: true,
+}
+
+map.on('click', function(e){
+    var mc = new L.marker([e.latlng.lat, e.latlng.lng],markerOptions).addTo(map);
+     lat = e.latlng.lat;
+     lng = e.latlng.lng
+   var test= document.getElementById('test');
+//    test.textContent = lat;
+   test.value = lat;
+     
+});
+
+
+</script>
+</html>

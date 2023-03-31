@@ -24,14 +24,16 @@ const userData = new mongoose.Schema({
       lastName: String,
       email: String,
       telNum: String,
-      address: String,
-      addressOpt: String,
-      province: String,
-      zipCode: String,
+      lat: Number,
       nameOnCard: String,
       cardNum: String,
       exp: String,
       cvv: String
+});
+const userLocate = new mongoose.Schema({
+       lat: Number,
+       lng: Number,
+       
 });
 const listUserItem = new mongoose.Schema({
     name: String,
@@ -42,5 +44,6 @@ const listUserItem = new mongoose.Schema({
 
 exports.Item = mongoose.model("item",itemSchema);
 exports.Item2 = mongoose.model("item2",userItem);
+exports.Item3 = mongoose.model("item3",userLocate);
 exports.List = mongoose.model("list",listUserItem);
 exports.User = mongoose.model("user",userData);

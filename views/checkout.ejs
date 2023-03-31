@@ -1,6 +1,6 @@
 <%-include('partials/header2.ejs') %>
 
-  
+
     <div class="container">
       <div class="py-5 text-center boxx">
         <h1 class="brand"><i class="fa fa-beer"></i>ACSL</h1>
@@ -8,7 +8,7 @@
       </div>
     
       <div class="row">
-        
+     
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Billing address</h4>
           <form action="/checkbill" method="post">
@@ -37,32 +37,9 @@
               <input name="tel" type="text" class="form-control" id="phonenum" placeholder="000-000-0000">
             
             </div>
-    
+            <hr class="msb-4">
             <div class="mb-3">
-              <label for="address">Address</label>
-              <input name="address" type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-
-            </div>
-    
-            <div class="mb-3">
-              <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input name="address2" type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
-    
-            <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">Province</label>
-                <input name="province" type="text" class="form-control" id="province" placeholder="Province">
-             
-              </div>
-             
-              <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input name="zipCode" type="text" class="form-control" id="zip" placeholder="zipcode" required>
-
-              </div>
-            </div>
-    
+        
             <hr class="mb-4">
     
             <h4 class="mb-3">Payment</h4>
@@ -92,6 +69,8 @@
                 <input name="cvv" type="text" class="form-control" id="cc-cvv" placeholder="" required>
               
               </div>
+              <div class="col-md-3 mb-3"></div>
+              <div class="col-md-3 mb-3"></div>
             </div>
           
    
@@ -128,5 +107,6 @@
           </form>
           </div><!-- Cart Item End Here-->
       </div><!-- End div-->
-    
+
+ 
 <%- include('partials/footer') %>
