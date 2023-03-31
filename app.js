@@ -178,6 +178,12 @@ app.post('/tohome',(req,res)=>{
 app.get('/OrderTrack',(req,res)=>{
     res.render('OrderTrack');
 })
+app.get('/user_login',(req,res)=>{
+    res.render('user_login');
+})
+app.get('/restaurant', (req, res) => {
+	res.render('restaurant');
+});
 
 app.post('/go-to-checkout',(req,res)=>{
     res.redirect('/checkout');

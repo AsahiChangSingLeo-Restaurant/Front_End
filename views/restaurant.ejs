@@ -1,0 +1,101 @@
+<%-include('partials/header3.ejs') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Form</title>
+    <style>
+      /* Center the form */
+      form {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin-top: 30px;
+      }
+
+      /* Decrease the size of the form elements */
+      label,
+      input,
+      select {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Make the submit and delete buttons bigger */
+      button[type="submit"],
+      button[type="button"] {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        background-color: #d4af32;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-right: 1rem;
+      }
+
+      /* Create a box-like appearance */
+      .form-container {
+        width: 25%;
+        margin-top: 5%;
+        padding: 2rem;
+        border: 2px solid #d4af32;
+        border-radius: 1rem;
+        background-color: white;
+      }
+
+      /* Style the delete button */
+      .delete-button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        background-color: #d4af32;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Style the container for the buttons */
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/order" method="POST">
+      <div class="form-container">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="phone">Telephone Number:</label>
+        <input type="tel" name="phone" required><br>
+
+        <label for="product">Product:</label>
+        <select name="product" required>
+          <option value="">-- Select a product --</option>
+          <option value="Product A">Product A</option>
+          <option value="Product B">Product B</option>
+          <option value="Product C">Product C</option>
+        </select><br>
+
+        <label for="price">Price:</label>
+        <input type="number" name="price" min="0" step="0.01" required><br>
+      </div>
+
+      <div class="button-container">
+        <button class="delete-button" type="button">Delete</button>
+      </div>
+      <div class="button-container">
+        <button class="submit-button" type="submit">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>
+
+<%- include('partials/footer') %> 
