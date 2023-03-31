@@ -218,4 +218,44 @@ body{
 }
 
 
-
+.login-form {
+    width: 700px;
+    height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-form label, .login-form input {
+    display: block;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .login-form label {
+    font-weight: bold;
+  }
+  .login-form button {
+    font-size: 1.5rem;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .login-form button:hover {
+    background-color: #0069d9;
+  }
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 30px;
+  }
+  
