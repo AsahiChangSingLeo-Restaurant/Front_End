@@ -163,13 +163,26 @@ app.get('/checkout',async (req,res)=>{
     for(i = 0; i < cartItems.length; i++){
         totalPrice += cartItems[i].SubTotalPrice;
     }
-    res.render('checkout',{
+    res.render('checkout',{ 
         cartItems:cartItems,
         totalPrice:totalPrice
     })
 });
-app.get('/checkbill',(req,res)=>{
-    res.render('checkbill');
+app.get('/checkbill',async(req,res)=>{
+    const userCartList = await Item2.find({});
+    const userDetail = await User.find({});
+    var totalPrice = 0;
+    for(i = 0; i < userCartList.length; i++){
+        totalPrice += userCartList[i].SubTotalPrice;
+    }
+    res.render('checkbill',{
+        userCartList:userCartList,
+        totalPrice:totalPrice,
+        userDetail:userDetail
+    });
+});
+app.get('/map',(req,res)=>{
+    res.render('map');
 })
 app.post('/tohome',(req,res)=>{
     console.log('Go to Home Page');
@@ -291,14 +304,13 @@ app.post('/checkbill',async(req,res)=>{
         lastName: req.body.lastName,
         email: req.body.email,
         telNum: req.body.tel,
-        address: req.body.address,
-        addressOpt: req.body.address2,
-        province: req.body.province,
-        zipCode: req.body.zipCode,
+        lat: '',
+        lng: '',
         nameOnCard: req.body.nameCard,
         cardNum: req.body.cardNum,
         exp: req.body.exp,
-        cvv: req.body.cvv
+        cvv: req.body.cvv,
+        status: 'Queue'
      });
      userInfo.save();
      const arrayName = userInfo.firstName;
@@ -308,8 +320,22 @@ app.post('/checkbill',async(req,res)=>{
         items: userCart
      });
      list.save();
-     res.redirect('/')
+     res.redirect('/map')
 });
+app.post('/confirm',async(req,res)=>{
+    const latti = req.body.lat;
+    const lonti = req.body.lng;
+    console.log(req.body.lat);
+    console.log(req.body.lng);
+    let userItem = await User.find({});
+    console.log(userItem[0].firstName)
+    let result = await User.findOne({firstName:userItem[0].firstName});
+    await User.updateOne({firstName:userItem[0].firstName},{lat: latti})
+    await User.updateOne({firstName:userItem[0].firstName},{lng: lonti})
+ 
+
+    res.redirect('/checkbill');
+})
 
 mongo.connect();
 

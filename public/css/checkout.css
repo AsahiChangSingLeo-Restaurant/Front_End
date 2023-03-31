@@ -180,7 +180,7 @@
 
 
 .footer {
-    position: absolute;
+    position:  absolute;
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -213,7 +213,7 @@ body{
     min-height: 100vh;
   }
 .divBox{
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .Track{
@@ -221,3 +221,10 @@ body{
 }
 
 
+#map { 
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 10%;
+    width: 50%;
+    height: 500px;
+}
