@@ -1,0 +1,20 @@
+<%-include('partials/header3.ejs') %>
+
+  
+  <div class="login-form">
+    <form method="post" action="/admin-login">
+      <label for="email">
+        Username:
+        <input type="text" id="email" name="email">
+      </label>
+      <label for="password">
+        Password:
+        <input type="password" id="password" name="password">
+      </label>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  
+  
+
+<%- include('partials/footer') %>

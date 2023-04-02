@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+<div class="container">
+
+    <section class="menu" id="menu">
+
+        <h1 class="heading"> Foods </h1>
+        <% if (foodMenu) { %>
+           
+        <div class="box-container">
+            <% foodMenu.forEach(food => { %>
+            <div class="box">
+               
+                
+                <div class="image">
+                    <img name="foodImage" src= '<%= food.imageURL %>' alt="">
+                </div>
+                <div class="content">
+                    <h3 name="foodName"><%= food.name %></h3>
+                    <p><%= food.description %></p>
+                    <form action="/add-food" method="post">
+                    <button name="buttonFood" class="button btn" type="checkbox" onClick="this.form.submit()"  value="<%=food._id%>" >add to cart</button>             
+                     </form>
+                    <span class="price" name="foodPrice"><%= food.price%> THB</span>
+                </div>       
+            </div>
+            <% }); %>
+        </div>
+        <% } %>
+    </section>
+
+</div>
+
+<!-- menu section ends -->
+<!-- drink section starts -->
+<div class="container">
+
+    <section class="drink" id="drink">
+        <h1 class="heading"> Drinks </h1>
+    
+        <% if (drinkMenu) { %>
+           
+            <div class="box-container">
+                <% drinkMenu.forEach(function(drink) { %>
+                <div class="box">
+                   
+                    
+                    <div class="image">
+                        <img src= '<%= drink.imageURL %>' alt="">
+                    </div>
+                    <div class="content">
+                        <h3><%= drink.name %></h3>
+                        <p><%= drink.description %></p>
+                        <form action="/add-food" method="post">
+                        <button name="buttonDrink" class="button btn" type="checkbox" onClick="this.form.submit()" value="<%=drink._id%>">add to cart</button>
+                        </form>
+                        <span class="price"><%= drink.price%> THB</span>
+                    </div>       
+                </div>
+                <% }); %>
+            </div>
+            <% } %>
+           
+    </section>
+
+</div>
+<!-- drink section ends -->
+
+<section>
+<%- include('partials/footer') %>
+</section>

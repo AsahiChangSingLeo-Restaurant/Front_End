@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+ 
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="row">
+          <div class="navbar-header col-lg-6 col-md-6 ">
+              <p class="navbar-brand"><i class="fa fa-beer"></i>ACSL</p>
+              </div>
+              
+              <div class="col-lg-6 col-md-6">
+                <ul class="nav navbar-nav navbar-right">
+                  <li id="food"><a class="button btn btn-secondary" href="#menu">Food </a></li>
+                  <li id="about"><a class="button btn btn-secondary" href="#drink">Drink</a></li>
+                  <li id="order"><a class="button btn btn-secondary" href="">Order</a></li>            
+                  <li><!--the dropdown button -->
+                   <div class="dropdown">
+                    <button  class="button btn btn-secondary dropdown-toggle" type="button" id="dropdownCartButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+                    </button>
+                   <div class="dropdown-menu" aria-labelledby="dropdownCartButton">
+              <div id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+            <%if(cartItems) {%>
+                <%cartItems.forEach(function(cart){ %>
+                    <p>Name: <%=cart.name%></p>
+                    <p>Price: <%= cart.SubTotalPrice%> THB</p>
+                    <form action="/quantity" method="post">
+                        <label name="q1" form="quantity" value="<%=cart.quantity%>">Quantity: <%=cart.quantity%></label>
+                        <button name="plus" onClick="this.form.submit()"  type="checkbox" value="<%=cart._id%>" >+</button>
+                        <button name="minus" onClick="this.form.submit()"  type="checkbox" value="<%=cart._id%>" >-</button>
+                        <button name="delete" onClick="this.form.submit()" type="checkbox" value="<%=cart._id%>"> <i class="fa fa-trash" aria-hidden="true"></i></button>
+                       </form>
+                 
+                      <%});%>
+                      
+                    <%}%>
+                
+        </div>
+        <p>Total Price: <%= totalPrice %></p>
+          <div class="dropdown-divider"></div>
+          <form action="/go-to-checkout" method="post">
+          <button class="dividerbtn btn btn-warning dropdown-item" href="#">Checkout</button>
+          </form>
+        </div>
+      </div> <!-- End Dropdown-->
+        </li>
+          
+       </ul>
+            </div><!-- end word nav-->
+    
+        </div><!-- End row-->
+        </div> <!-- End Container -->
+     </nav>
+      <div class="page-container">        
+
+    
