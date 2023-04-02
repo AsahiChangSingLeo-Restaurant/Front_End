@@ -3,14 +3,14 @@ const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const lodash = require('lodash');
 const mongo = require('./config/db');
-const axios = require('axios');
+
 const Item = require('./model/listItem').Item;
 const Item2 = require('./model/listItem').Item2;
-const Item3 = require('./model/listItem').Item3;
 const List = require('./model/listItem').List;
 const User = require('./model/listItem').User;
 
-
+const userName = 'admin';
+const password = '1234';
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -195,9 +195,24 @@ app.post('/tohome',(req,res)=>{
     console.log('Go to Home Page');
    res.redirect('/');
 });
-app.get('/OrderTrack',(req,res)=>{
-    res.render('OrderTrack');
-})
+app.get('/login',(req,res)=>{
+    res.render('login');
+  
+});
+app.get('/queue',async (req,res)=>{
+    const userCartList = await List.find({});
+    const userCartItem = await Item2.find({});
+      
+    var totalPrice = 0;
+    for(i = 0; i < userCartItem.length; i++){
+        totalPrice += userCartItem[i].SubTotalPrice;
+    }
+   res.render('restaurant',{
+      userCartList:userCartList,
+      userCartItem:userCartItem,
+      totalPrice,totalPrice
+   });
+});
 
 app.post('/go-to-checkout',(req,res)=>{
     res.redirect('/checkout');
@@ -225,11 +240,11 @@ app.post('/add-food',async (req,res)=>{
   else if(drinkButton){
     const result = await Item.findById(drinkButton);
     const userItem = new Item2({
-        imageURL: result.imageURL,
-        name: result.name,
+     
+       name: result.name,
         price: result.price,
         SubTotalPrice: result.price,
-        quantity: 1,
+        quantity: 1, 
   
     });
       userItem.save();
@@ -346,8 +361,17 @@ app.post('/confirm',async(req,res)=>{
  
 
     res.redirect('/checkbill');
-})
-
+});
+ app.post('/admin-login',(req,res)=>{
+     const inputUserName = req.body.email;
+    const inputPassword = req.body.password
+    if(inputUserName === userName && inputPassword === inputPassword){
+        res.redirect('/queue');
+    }
+    else{
+        res.redirect('/login')
+    }
+ })
 
 mongo.connect();
 
