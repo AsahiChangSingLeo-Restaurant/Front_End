@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const lodash = require('lodash');
 const mongo = require('./config/db');
-
 const Item = require('./model/listItem').Item;
 const Item2 = require('./model/listItem').Item2;
 const List = require('./model/listItem').List;
 const User = require('./model/listItem').User;
+
+
 
 const userName = 'admin';
 const password = '1234';
@@ -365,11 +366,11 @@ app.post('/confirm',async(req,res)=>{
  app.post('/admin-login',(req,res)=>{
      const inputUserName = req.body.email;
     const inputPassword = req.body.password
-    if(inputUserName === userName && inputPassword === inputPassword){
+    if(userName === inputUserName   && password === inputPassword){
         res.redirect('/queue');
     }
     else{
-        res.redirect('/login')
+        res.redirect('/login');
     }
  })
 

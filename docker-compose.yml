@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  front-end:
+    image: octopushead/dev-pro
+    ports:
+      - '3000:3000'
